@@ -1,8 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { DeleteBtn } from './DeleteBtn';
 
 interface Listing {
+  _id: string;
   date_applied: string;
   co_name: string;
   position: string;
@@ -27,7 +30,7 @@ export default function IcpPost() {
         setIcpList(data);
       } catch (err) {
         console.error('listings error:', err);
-        setError('listings unavailable');
+        setError('Listings unavailable');
       } finally {
         setIsLoading(false);
       }
@@ -41,18 +44,26 @@ export default function IcpPost() {
 
   return (
     <>
-      <div>listings</div>
+      <div>Listings</div>
+      {icpList.slice().reverse().map((item: Listing, index: number) => {
+        const dateApplied = new Date(item.date_applied);
 
-      {icpList.slice().reverse().map((item: Listing, index: number) => (
-        <div key={index} className='icp-card border border-gray-300 rounded-lg w-[500px] mt-8 p-4 '>
-          <div>{item.date_applied}</div>
-          <div>{item.co_name}</div>
-          <div>{item.position}</div>
-          <div>{item.contact}</div>
-          <div>{item.url}</div>
-          <div>{item.notes}</div>
-        </div>
-      ))}
+        const formattedDate = dateApplied.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+        return (
+          <div key={index} className='icp-card border border-gray-300 rounded-lg w-[500px] mt-8 p-4'>
+            <div>{formattedDate}</div>
+            <div>{item.co_name}</div>
+            <div>{item.position}</div>
+            <div>{item.contact}</div>
+            <Link href={item.url}>
+              <div className="text-blue-500 underline cursor-pointer">Link</div>
+            </Link>
+            <div>{item.notes}</div>
+            {/* <DeleteBtn _id={item._id} /> */}
+          </div>
+        );
+      })}
     </>
-  )
+  );
 }

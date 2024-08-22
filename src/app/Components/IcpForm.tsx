@@ -25,6 +25,8 @@ export default function IcpForm() {
 
 
   function formSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
     fetch('/api/listings', {
       method: 'POST',
       headers: {
@@ -59,7 +61,7 @@ export default function IcpForm() {
         });
       })
       .catch((error) => {
-        console.error('Error submitting form:', error);
+
       });
   };
 

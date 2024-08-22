@@ -26,6 +26,8 @@ export async function POST(request: Request) {
     await connectDB();
     const data = await request.json();
 
+    
+
     const newListing = await Listings.create(
 {
    co_name: data.co_name,
@@ -44,3 +46,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to create listing' }, { status: 500 });
   }
 }
+
+
