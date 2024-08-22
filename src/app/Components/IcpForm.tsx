@@ -1,8 +1,9 @@
-import React from 'react'
+
+
+export default async function IcpForm() {
 
 
 
-export default function IcpForm() {
   return (
     <>
       <div className="bg-white p-8 rounded-lg shadow-md w-[600px] h-[500px] overflow-auto">

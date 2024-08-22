@@ -23,11 +23,11 @@ const listingSchema = new Schema({
   },
   notes: {
     type: String,
-    required: true,
+
   },
 });
 
 const Listings =
-  mongoose.model.Listings || mongoose.model("icp_list", listingSchema);
+  mongoose.models.icp_list || mongoose.model("icp_list", listingSchema);
 
 export default Listings;
