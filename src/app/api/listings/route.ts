@@ -24,14 +24,20 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await connectDB();
-    
-    // Parse the incoming JSON request body
     const data = await request.json();
 
-    // Create a new listing
-    const newListing = await Listings.create(data);
+    const newListing = await Listings.create(
+{
+   co_name: data.co_name,
+      position: data.position,
+      url: data.url,
+      date_applied: new Date(data.date_applied), 
+      contact: data.contact,
+      notes: data.notes}
 
-    // Return the created listing as JSON
+    );
+
+    
     return NextResponse.json(newListing, { status: 201 });
   } catch (error) {
     console.error('Error creating listing:', error);

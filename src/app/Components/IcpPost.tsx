@@ -42,8 +42,9 @@ export default function IcpPost() {
   return (
     <>
       <div>listings</div>
-      {icpList.map((item: Listing, index: number) => (
-        <div key={index} className='icp-card border border-gray-300 rounded-lg w-[500px] mt-8 p-4'>
+
+      {icpList.slice().reverse().map((item: Listing, index: number) => (
+        <div key={index} className='icp-card border border-gray-300 rounded-lg w-[500px] mt-8 p-4 '>
           <div>{item.date_applied}</div>
           <div>{item.co_name}</div>
           <div>{item.position}</div>
