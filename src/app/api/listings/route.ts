@@ -20,13 +20,10 @@ export async function GET() {
   }
 }
 
-// Named export for the POST method (if you have it)
 export async function POST(request: Request) {
   try {
     await connectDB();
     const data = await request.json();
-
-    
 
     const newListing = await Listings.create(
 {
@@ -46,5 +43,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to create listing' }, { status: 500 });
   }
 }
-
 

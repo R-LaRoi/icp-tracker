@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: hsla(258, 49%, 9%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(258, 49%, 9%, 1) 0%,
+    hsla(227, 47%, 10%, 1) 49%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(258, 49%, 9%, 1) 0%,
+    hsla(227, 47%, 10%, 1) 49%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(258, 49%, 9%, 1) 0%,
+    hsla(227, 47%, 10%, 1) 49%
+  );
+  color: rgb(255, 255, 255);
+}
+
+.entity {
+  display: flex;
+  justify-content: space-between;
+}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { DeleteBtn } from './DeleteBtn';
 
 interface Listing {
   _id: string;
@@ -18,6 +17,33 @@ export default function IcpPost() {
   const [icpList, setIcpList] = useState<Listing[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+
+  async function deleteItem(_id: string) {
+    console.log('Attempting to delete item with id:', _id);
+    try {
+      const response = await fetch(`/api/listings/${_id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const responseText = await response.text();
+      console.log('Raw response:', responseText);
+
+      if (!response.ok) {
+        throw new Error(`Failed to delete item: ${response.status} ${response.statusText}`);
+      }
+
+      const result = JSON.parse(responseText);
+      console.log(result.message);
+      // Update UI here
+    } catch (error) {
+      console.error('Error deleting item:', error);
+      // Show error to user here
+    }
+  }
 
   useEffect(() => {
     async function showListings() {
@@ -51,15 +77,20 @@ export default function IcpPost() {
         const formattedDate = dateApplied.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 
         return (
-          <div key={index} className='icp-card border border-gray-300 rounded-lg w-[500px] mt-8 p-4'>
-            <div>{formattedDate}</div>
-            <div>{item.co_name}</div>
-            <div>{item.position}</div>
-            <div>{item.contact}</div>
-            <Link href={item.url}>
-              <div className="text-blue-500 underline cursor-pointer">Link</div>
-            </Link>
-            <div>{item.notes}</div>
+          <div key={index} className='icp-card h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full m-4'>
+            <div className='entity p-6 m-14'>
+              <div>{formattedDate}</div>
+              <div>{item.co_name}</div>
+              <div>{item.position}</div>
+              <div>{item.contact}</div>
+              <Link href={item.url}>
+                <div className="text-blue-500 underline cursor-pointer">Link</div>
+              </Link>
+              <div>{item.notes}</div>
+
+              <button onClick={() => deleteItem(item._id)}>delete</button> </div>
+
+
             {/* <DeleteBtn _id={item._id} /> */}
           </div>
         );
