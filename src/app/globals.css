@@ -22,6 +22,9 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.header {
+  display: flex;
+}
 .entity {
   display: flex;
   justify-content: space-between;
