@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import DeleteBtn from './DeleteBtn';
+
 
 interface Listing {
   _id: string;
@@ -13,37 +15,19 @@ interface Listing {
   notes: string;
 }
 
+interface DeleteItemProps {
+  _id: string;
+  redirectPath: string
+
+}
+
+
+
 export default function IcpPost() {
   const [icpList, setIcpList] = useState<Listing[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-
-  async function deleteItem(_id: string) {
-    console.log('Attempting to delete item with id:', _id);
-    try {
-      const response = await fetch(`/api/listings/${_id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-
-      const responseText = await response.text();
-      console.log('Raw response:', responseText);
-
-      if (!response.ok) {
-        throw new Error(`Failed to delete item: ${response.status} ${response.statusText}`);
-      }
-
-      const result = JSON.parse(responseText);
-      console.log(result.message);
-      // Update UI here
-    } catch (error) {
-      console.error('Error deleting item:', error);
-      // Show error to user here
-    }
-  }
 
   useEffect(() => {
     async function showListings() {
@@ -88,19 +72,13 @@ export default function IcpPost() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                   </svg>
-
-
                 </div>
+
+
               </Link>
               <div>{item.notes}</div>
-
-              <button onClick={() => deleteItem(item._id)}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-
-
-              </button> </div>
+              <DeleteBtn _id={item._id} />
+            </div>
 
           </div>
         );

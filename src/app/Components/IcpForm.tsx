@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import icpImg from '../../../public/icpsquares.png'
 import Image from 'next/image';
+import Modal from './Modal';
 export default function IcpForm() {
 
   const [formData, setFormData] = useState({
@@ -14,6 +15,14 @@ export default function IcpForm() {
     notes: '',
   });
   const [openForm, setOpenForm] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [modalMessage, setModalMessage] = useState('')
+
+
+  function showForm() {
+    console.log('show form')
+    setOpenForm(!openForm)
+  }
 
   function formInput(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
 
@@ -24,7 +33,6 @@ export default function IcpForm() {
     }));
 
   }
-
 
   function formSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,6 +52,12 @@ export default function IcpForm() {
       }),
     })
       .then((response) => {
+        setShowModal(true)
+        setModalMessage('✅ Your listing was added')
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500);
+
 
         if (!response.ok) {
           throw new Error('Failed to submit the form');
@@ -53,6 +67,7 @@ export default function IcpForm() {
       .then((result) => {
         console.log('Form submitted successfully:', result);
 
+
         setFormData({
           company: '',
           position: '',
@@ -61,16 +76,20 @@ export default function IcpForm() {
           contact: '',
           notes: '',
         });
+
+
+
+
+
       })
       .catch((error) => {
+        console.error('Error submitting form:', error);
 
       });
   };
 
-  function showForm() {
-    console.log('show form')
-    setOpenForm(!openForm)
-  }
+
+
 
   return (
     <>
@@ -88,6 +107,7 @@ export default function IcpForm() {
         </div>
 
         {openForm ? <div className="form-- p-4 rounded-lg shadow-md w-[900px] overflow-auto">
+
           <form className="grid grid-cols-2 gap-4" onSubmit={formSubmit}>
             <div className="col-span-2">
               <input type="text"
@@ -150,6 +170,9 @@ export default function IcpForm() {
             <div className="col-span-2">
               <button type="submit" className="w-full bg-pink-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
             </div>
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+              {modalMessage}
+            </Modal>
           </form>
         </div>
           :
