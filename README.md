@@ -26,16 +26,6 @@ A web application developed using Next.js, MongoDB, TypeScript, and React. It pr
 - MongoDB
 - TailwindCSS
 
-### Demo
-
-icp-tracker.vercel.app
-
-## Screenshots
-
-![App Screenshot](https://github.com/user-attachments/assets/2b819832-223f-486e-90da-1068f7eeab1f)
-
-![App Screenshot](https://github.com/user-attachments/assets/350bfe49-f2f2-4177-9f36-4fe96420bb39)
-
 ### Getting Started
 
 Clone the repository
@@ -47,3 +37,13 @@ Set up your MongoDB connection string in the environment variables
 Run the development server with `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Demo
+
+icp-tracker.vercel.app
+
+## Screenshots
+
+![App Screenshot](https://github.com/user-attachments/assets/2b819832-223f-486e-90da-1068f7eeab1f)
+
+![App Screenshot](https://github.com/user-attachments/assets/350bfe49-f2f2-4177-9f36-4fe96420bb39)
