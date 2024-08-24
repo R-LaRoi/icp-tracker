@@ -12,11 +12,8 @@ A web application developed using Next.js, MongoDB, TypeScript, and React. It pr
 #### Interactive Listing
 
 - Access all user listings stored in the MongoDB database through the CRUD API
-- Option to delete listings
+- Users are able to delete listings in the MongoDB database
 
-#### Responsive Design
-
-- Enjoy a smooth, consistent experience across desktop and mobile devices
 
 ### Tech Stack
 
