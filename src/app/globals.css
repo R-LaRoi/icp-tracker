@@ -24,8 +24,26 @@ body {
 
 .header {
   display: flex;
+  height: 95vh;
+}
+
+.icpsq {
+  width: 40%;
+}
+.header-txt {
+  margin-top: 8%;
+  width: 60%;
+  padding: 3rem;
 }
 .entity {
   display: flex;
   justify-content: space-between;
+}
+
+.form-- {
+  margin: 2rem;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem;
+  background-color: rgba(25, 13, 36, 0.432);
 }
