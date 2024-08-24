@@ -60,27 +60,33 @@ export default function IcpPost() {
         const formattedDate = dateApplied.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 
         return (
+
           <div key={index} className='icp-card h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full m-4'>
-            <div className='entity p-6 m-14'>
-              <div>{formattedDate}</div>
-              <div>{item.co_name}</div>
-              <div>{item.position}</div>
-              <div>{item.contact}</div>
-              <Link href={item.url}>
-                <div className="cursor-pointer">
+            <div className='entity p-2 m-16'>
+              <div className="entity-left">
+                <div>{formattedDate}</div>
+              </div>
+              <div className="entity-middle">
+                <div>{item.co_name}</div>
+                <div>{item.position}</div>
+              </div>
 
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                  </svg>
-                </div>
-
-
-              </Link>
-              <div>{item.notes}</div>
-              <DeleteBtn _id={item._id} />
+              <div className="entity-right">
+                <div>{item.notes}</div>
+                <Link href={item.url}>
+                  <div className="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </div>
+                </Link>
+                <DeleteBtn _id={item._id} />
+              </div>
             </div>
 
           </div>
+
+
         );
       })}
     </>

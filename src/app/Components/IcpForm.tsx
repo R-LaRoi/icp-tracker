@@ -4,8 +4,9 @@ import { useState } from 'react';
 import icpImg from '../../../public/icpsquares.png'
 import Image from 'next/image';
 import Modal from './Modal';
-export default function IcpForm() {
 
+
+export default function IcpForm() {
   const [formData, setFormData] = useState({
     company: '',
     position: '',
@@ -79,8 +80,6 @@ export default function IcpForm() {
 
 
 
-
-
       })
       .catch((error) => {
         console.error('Error submitting form:', error);
@@ -89,14 +88,12 @@ export default function IcpForm() {
   };
 
 
-
-
   return (
     <>
       <section className='header mt-10 pt-10 '>
         <div className='header-txt'>
           <div className="text-7xl font-bold m-4 p-5">
-            <span className='text-pink-600 '>Define </span>your path and  <span className='text-orange-400 mx-2'>take action </span>
+            <span className='text-pink-600'>Define </span>your path and  <span className='text-orange-400 mx-2'>take action </span>
             <span className=''>today.</span>
           </div>
           <p className='text-white text-xl m-4 p-5 '>
