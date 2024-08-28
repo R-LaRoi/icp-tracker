@@ -56,8 +56,7 @@ export default function IcpPost() {
     <>
       {icpList.slice().reverse().map((item: Listing, index: number) => {
         const dateApplied = new Date(item.date_applied);
-
-        const formattedDate = dateApplied.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+        const formattedDate = dateApplied.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' });
 
         return (
 
