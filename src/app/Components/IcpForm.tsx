@@ -97,7 +97,7 @@ export default function IcpForm() {
             <span className=''>today.</span>
           </div>
           <p className='text-white text-xl m-4 p-5 '>
-            This application is designed to help you visualize and monitor your future opportunities. Let&aposs move closer to achieving your goals!</p>
+            This application is designed to help you visualize and track your future opportunities.</p>
 
           <button onClick={showForm}
             className='bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 uppercase rounded-full w-[175px] ml-8'>NEW</button>
