@@ -42,5 +42,3 @@ icp-tracker.vercel.app
 ## Screenshots
 ![App Screenshot](https://github.com/user-attachments/assets/27ac0d7a-916d-4f9b-9a23-3d6ebf97d258)]
 
-
-![App Screenshot](https://github.com/user-attachments/assets/350bfe49-f2f2-4177-9f36-4fe96420bb39)
