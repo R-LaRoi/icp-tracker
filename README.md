@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 icp-tracker.vercel.app
 
 ## Screenshots
+![App Screenshot](https://github.com/user-attachments/assets/350bfe49-f2f2-4177-9f36-4fe96420bb39)]
 
 
 ![App Screenshot](https://github.com/user-attachments/assets/350bfe49-f2f2-4177-9f36-4fe96420bb39)
