@@ -16,14 +16,16 @@ export default async function SignIn() {
 
   const csrfToken = storeCookies.get(csrfTokenCookie)?.value.split('|')[0]
   return (
-
-    <form method="post" action="/api/auth/callback/credentials">
-      <input name="csrfToken" type='hidden' defaultValue={csrfToken}>
+    <>
+      <form method="post" action="/api/auth/callback/credentials">
+        <input name="csrfToken" type='hidden' defaultValue={csrfToken} />
         <label htmlFor="">password
-          <input type="password" name='password' />
+
         </label>
+        <input type="password" name='password'></input>
         <button type='submit'>sign in</button>
-      </input>
-    </form>
+
+      </form >
+    </>
   )
 }

@@ -11,8 +11,8 @@ export const authOptions: NextAuthOptions = {
           type: "password",
         }
       },
-      async authorize(credentials, req) {
-   if(credentials?.password === process.env.NEXTAUTH_PASSWORD) 
+      async authorize(credentials, _request) {
+   if(credentials?.password == process.env.NEXTAUTH_PASSWORD) 
        
 {
   return {id: '0'}
