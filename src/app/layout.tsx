@@ -7,10 +7,10 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const Metadata = {
-  title: "Career Plan",
-  description: "Define your path today.",
-};
+// export const Metadata = {
+//   title: "Career Plan",
+//   description: "Define your path today.",
+// };
 
 export default function RootLayout({
   children,

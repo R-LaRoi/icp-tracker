@@ -93,11 +93,11 @@ export default function IcpForm() {
       <section className='header mt-10 pt-10 '>
         <div className='header-txt'>
           <div className="text-7xl font-bold m-4 p-5">
-            <span className='text-pink-600'>Define </span>your path and  <span className='text-orange-400 mx-2'>take action </span>
-            <span className=''>today.</span>
+            <span className='text-pink-600'>Get </span> one step closer  <span className='text-orange-400 mx-2'>to your</span>
+            <span className=''>goal.</span>
           </div>
           <p className='text-white text-xl m-4 p-5 '>
-            This application is designed to help you visualize and track your future opportunities.</p>
+          </p>
 
           <button onClick={showForm}
             className='bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 uppercase rounded-full w-[175px] ml-8'>NEW</button>
