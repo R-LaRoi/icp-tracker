@@ -1,21 +1,18 @@
-'use client'
+import { authOptions } from '@/auth';
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
-import { useSession } from 'next-auth/react'
+export default async function Protected() {
+  const session = await getServerSession(authOptions);
 
-export default function Protected() {
-
-  const { status } = useSession({ required: true })
-  if (status === 'loading') {
-    return 'this page is loading'
+  if (!session) {
+    redirect('/api/auth/signin?callbackUrl=/protected');
   }
 
   return (
-
-    <section>
-      <h1>
-        page requires password
-      </h1>
-    </section>
-
-  )
+    <main>
+      <h1>🔒 Protected page</h1>
+      <p>This page is password protected!</p>
+    </main>
+  );
 }
