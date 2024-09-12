@@ -28,7 +28,7 @@ body {
 }
 
 .icpsq {
-  width: 40%;
+  width: 65%;
 }
 .header-txt {
   margin-top: 8%;
@@ -84,13 +84,13 @@ body {
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
   }
 
   .icpsq {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
   }
 

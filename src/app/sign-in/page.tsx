@@ -27,9 +27,9 @@ export default async function SignIn() {
 
 
   return (
-    <section className="">
-      <Nav />
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-screen bg-gray-100">
+    <section className="mt-10 pt-10">
+      {/* <Nav /> */}
+      <div className=" header flex flex-col md:flex-row items-center justify-between min-h-screen p-4">
         <div className="w-full md:w-1/2 p-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="text-pink-600">Define </span>your path and{' '}
@@ -44,16 +44,17 @@ export default async function SignIn() {
             <input name="csrfToken" type='hidden' defaultValue={csrfToken} />
 
             <input
-              className="bg-transparent border border-white rounded-md px-4 py-2 text-white placeholder-white::placeholder focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
+              className="bg-transparent border border-white rounded-md mr-3 px-4 py-2 text-white placeholder-white::placeholder focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
               placeholder="username " type="password" name='password'></input>
             <button className="bg-gradient-to-r from-pink-500 to-violet-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300" type='submit'>sign in </button>
           </form >
         </div>
 
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 ml-8">
           <Image
             src={objImg}
             alt="colored logo squares"
+            className="icpsq"
           />
         </div>
       </div>
