@@ -3,11 +3,9 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
-import { Nav } from "../Components/Nav";
 
 import objImg from '../../../public/obj.webp'
 import Image from 'next/image';
-
 
 
 
@@ -28,7 +26,6 @@ export default async function SignIn() {
 
   return (
     <section className="mt-10 pt-10">
-      {/* <Nav /> */}
       <div className=" header flex flex-col md:flex-row items-center justify-between min-h-screen p-4">
         <div className="w-full md:w-1/2 p-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">

@@ -10,9 +10,8 @@ export default async function Protected() {
   }
 
   return (
-    <main>
-      <h1>🔒 Protected page</h1>
+    <section>
       <p>This page is password protected!</p>
-    </main>
+    </section>
   );
 }
